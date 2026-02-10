@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+// Function to increase the value using call by reference
+void increase(int *x)
+{
+    *x = *x + 1;   // increase the value by 1
+}
+
+int main()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    printf("Before function call, value = %d\n", num);
+
+    increase(&num);   // passing address of variable
+
+    printf("After function call, value = %d\n", num);
+
+    return 0;
+}
