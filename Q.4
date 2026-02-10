@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+#define MAX 100
+
+// Function prototypes
+void menu();
+void input(int arr[], int n);
+int sum(int arr[], int n);
+float average(int arr[], int n);
+int min(int arr[], int n);
+int max(int arr[], int n);
+void display(int arr[], int n);
+
+int main()
+{
+    int arr[MAX], n, choice;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    do
+    {
+        menu();
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch(choice)
