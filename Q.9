@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+/* Definition of Complex data structure */
+struct Complex {
+    float real;
+    float imag;
+};
+
+/* Function to add two complex numbers */
+struct Complex add(struct Complex a, struct Complex b) {
+    struct Complex result;
+    result.real = a.real + b.real;
+    result.imag = a.imag + b.imag;
+    return result;
+}
+
+/* Function to subtract two complex numbers */
+struct Complex subtract(struct Complex a, struct Complex b) {
+    struct Complex result;
+    result.real = a.real - b.real;
+    result.imag = a.imag - b.imag;
