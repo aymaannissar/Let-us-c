@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <string.h>
+
+#define N 10   // number of students
+
+/* Structure declaration */
+struct Student {
+    char name[50];
+    int roll_no;
+    char mobile_no[15];
+    float CGPA;
+    char DoB[15];
+    char course[30];
+    int year;
+};
+
+/* Function to read data of one student */
+void readStudent(struct Student *s) {
+    printf("\nEnter Name: ");
+    scanf(" %[^\n]", s->name);
+
+    printf("Enter Roll No: ");
+    scanf("%d", &s->roll_no);
+
+    printf("Enter Mobile No: ");
+    scanf("%s", s->mobile_no);
+
+    printf("Enter CGPA: ");
+    scanf("%f", &s->CGPA);
+
+    printf("Enter Date of Birth (dd/mm/yyyy): ");
+    scanf("%s", s->DoB);
+
+    printf("Enter Course: ");
+    scanf(" %[^\n]", s->course);
+
+    printf("Enter Year: ");
+    scanf("%d", &s->year);
+}
+
+/* Function to display one student */
+void displayStudent(struct Student s) {
+    printf("\nName       : %s", s.name);
+    printf("\nRoll No    : %d", s.roll_no);
+    printf("\nMobile No  : %s", s.mobile_no);
+    printf("\nCGPA       : %.2f", s.CGPA);
+    printf("\nDate of Birth : %s", s.DoB);
+    printf("\nCourse     : %s", s.course);
+    printf("\nYear       : %d", s.year);
+}
+
+/* Function to find topper */
+int findTopper(struct Student s[]) {
+    int i, index = 0;
+    float max = s[0].CGPA;
+
+    for (i = 1; i < N; i++) {
+        if (s[i].CGPA > max) {
+            max = s[i].CGPA;
+            index = i;
+        }
+    }
+    return index;
+}
+
+int main() {
+    struct Student students[N];
+    int i, topperIndex;
+
+    printf("Enter details of %d students:\n", N);
+    for (i = 0; i < N; i++) {
+        printf("\n--- Student %d ---", i + 1);
+        readStudent(&students[i]);
+    }
+
+    topperIndex = findTopper(students);
+
+    printf("\n\n***** TOPPER DETAILS *****");
+    displayStudent(students[topperIndex]);
+
+    return 0;
+}
